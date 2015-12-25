@@ -28,15 +28,19 @@ class Walker {
   }
   
   void step() {
-    int choice = int(random(4));
-    if(choice == 0) {
-      x++;
-    } else if (choice == 1) {
-      x--;
-    } else if (choice == 2) {
-      y++;
-    } else {
-      y--;
+    float stepx = random(3) - 1;
+    float stepy = random(3) - 1;
+    x += stepx;
+    y += stepy;
+    if(x > width) {
+      x = 0;
+    } else if (x <= 0) {
+      x = width;
+    }
+    if(y > height) {
+      y = 0;
+    } else if (y <= 0) {
+      y = height;
     }
   }
 }
