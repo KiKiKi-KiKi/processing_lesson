@@ -8,7 +8,9 @@ void setup() {
 }
 
 void draw() {
-  spray.step(mouseX, mouseY);
+  if(mouseButton == LEFT) {
+    spray.step(mouseX, mouseY);
+  }
 }
 
 
