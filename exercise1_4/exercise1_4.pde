@@ -3,8 +3,9 @@ Spray spray;
 
 void setup() {
   size(640, 640);
+  colorMode(HSB, 100);
+  background(0, 0, 100);
   spray = new Spray();
-  background(255, 255, 255);
 }
 
 void draw() {
@@ -25,9 +26,13 @@ class Spray {
     sd = 10;
   }
   
-  void display(float x, float y) {
-    stroke(0);
-    point(x, y);
+  void display(float x, float y, float num) {
+    noStroke();
+    int hue = int( num * 25 + 50 );
+    float s = num * -1 + 1.5;
+    println(hue);
+    fill(hue, 60, 100);
+    ellipse(x, y, s, s);
   }
   
   void step(float mx, float my) {
@@ -36,7 +41,9 @@ class Spray {
       float numY = (float)generator.nextGaussian();
       float x = numX * sd + mx;
       float y = numY * sd + my;
-      this.display(x, y);
+      
+      float numH = (float)generator.nextGaussian();
+      this.display(x, y, numH);
     }
   }
 }
