@@ -12,7 +12,7 @@ void draw() {
   float n = noise(t);
   // map(a, b, c, d, e)  aを範囲b-cから別の範囲d-eへ変換する
   float x = map(n, 0, 1, 0, width);
-  float nh = noise(t - 0.05);
+  float nh = noise(t + 1000);
   float y = map(nh, 0, 1, 0, height);
   fill(200);
   ellipse(x, y, 16, 16);
